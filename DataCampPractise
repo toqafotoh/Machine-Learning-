@@ -6,3 +6,31 @@ blob_two_cities = TextBlob(two_cities)
 
 # Print out the sentiment 
 print(blob_two_cities.sentiment)
+#---------------------------------------
+# Import the required packages
+from textblob import TextBlob
+
+# Create a textblob object 
+blob_annak = TextBlob(annak)
+blob_catcher = TextBlob(catcher)
+
+# Print out the sentiment   
+print('Sentiment of annak: ', blob_annak.sentiment)
+print('Sentiment of catcher: ', blob_catcher.sentiment)
+#------------------------------------------
+
+from wordcloud import WordCloud
+
+# Generate the word cloud from the east_of_eden string
+cloud_east_of_eden = WordCloud(background_color="white").generate(east_of_eden)
+
+## and it has many arguments that's nice to know them 🙈🙈
+
+# Generate the word cloud from the east_of_eden string
+cloud_east_of_eden = WordCloud(background_color="white").generate(east_of_eden)
+
+# Create a figure of the generated cloud
+plt.imshow(cloud_east_of_eden, interpolation='bilinear')  
+plt.axis('off')
+# Display the figure
+plt.show()
