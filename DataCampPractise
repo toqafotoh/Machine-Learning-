@@ -34,3 +34,18 @@ plt.imshow(cloud_east_of_eden, interpolation='bilinear')
 plt.axis('off')
 # Display the figure
 plt.show()
+
+# Import the word cloud function  
+from wordcloud import WordCloud
+
+# Create and generate a word cloud image 
+my_cloud = WordCloud(background_color='white', stopwords=my_stopwords).generate(descriptions)
+
+# Display the generated wordcloud image
+plt.imshow(my_cloud, interpolation='bilinear') 
+plt.axis("off")
+
+# Don't forget to show the final image
+plt.show()
+
+
