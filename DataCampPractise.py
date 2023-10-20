@@ -121,4 +121,17 @@ print('Original tokens: ', word_tokens[0])
 # Filter out non-letter characters
 cleaned_tokens = [[word for word in item if word.isalpha()] for item in word_tokens]
 print('Cleaned tokens: ', cleaned_tokens[0])
+#______________________________________________________
+# Import the required function
+from sklearn.feature_extraction.text import TfidfVectorizer
 
+annak = ['Happy families are all alike;', 'every unhappy family is unhappy in its own way']
+
+# Call the vectorizer and fit it
+anna_vect = TfidfVectorizer()
+anna_vect.fit(annak)
+# Create the tfidf representation
+anna_tfidf = anna_vect.transform(annak)
+
+# Print the result 
+print(anna_tfidf.toarray())
