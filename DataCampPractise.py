@@ -90,3 +90,21 @@ X_review = vect.transform(reviews.review)
 # Create a DataFrame from the bow representation
 X_df = pd.DataFrame(X_review.toarray(), columns=vect.get_feature_names())
 print(X_df.head())
+
+#____________________________________
+# Import the vectorizer and default English stop words list
+from sklearn.feature_extraction.text import CountVectorizer ,ENGLISH_STOP_WORDS
+
+
+# Define the stop words
+my_stop_words = ENGLISH_STOP_WORDS.union(['airline', 'airlines', '@', 'am', 'pm'])
+ 
+# Build and fit the vectorizers
+vect1 = CountVectorizer(stop_words=my_stop_words)
+vect2 = CountVectorizer(stop_words=ENGLISH_STOP_WORDS) 
+vect1.fit(tweets.text)
+vect2.fit(tweets.negative_reason)
+
+# Print the last 15 features from the first, and all from second vectorizer
+print(vect1.get_feature_names()[-15:])
+print(vect2.get_feature_names())
